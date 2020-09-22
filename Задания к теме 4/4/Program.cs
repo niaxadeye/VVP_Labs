@@ -34,8 +34,8 @@ namespace _4
             int k = 0;
             decimal a =0 , b = 0, Fsum, Fraz, Fproizv, Fchasnoe;
             Console.WriteLine("Разделитель - запятая (например 12,2)");
-            Console.Write("Введите число a: ");
             do {
+                Console.Write("Введите чсло a: ");
                 try
                 {
                     a = Convert.ToDecimal(Console.ReadLine());
@@ -43,15 +43,18 @@ namespace _4
                 }
                 catch
                 {
-                    Console.Write("Введите чсло a: ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Неверный формат");
+                    Console.ResetColor();
                 }
             } while (k == 0);
 
             k = 0;
 
-            Console.Write("Введите число b: ");
+            
             do
             {
+                Console.Write("Введите число b: ");
                 try
                 {
                     b = Convert.ToDecimal(Console.ReadLine());
@@ -59,21 +62,26 @@ namespace _4
                 }
                 catch
                 {
-                    Console.Write("Введите число b: ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Неверный формат");
+                    Console.ResetColor();
                 }
             } while (k == 0);
 
-            Console.WriteLine($"a = {a} b = {b}");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"a = {a}");
+            Console.WriteLine($"b = {b}");
+            Console.ResetColor();
 
             Fsum = calcl_Fsum(a, b);
             Fraz = calcl_Fraz(a, b);
             Fproizv = calcl_Fproizv(a, b);
             Fchasnoe = calcl_Fchasnoe(a, b);
 
-            Console.WriteLine($"a^2 + b^2 = {Fsum}");
-            Console.WriteLine($"a^2 - b^2 = {Fraz}");
-            Console.WriteLine($"a^2 * b^2 = {Fproizv}");
-            Console.WriteLine($"a^2 / b^2 = {Fchasnoe}");
+            Console.WriteLine($"a^2 + b^2 = {a * a} + {b * b} = {Fsum}");
+            Console.WriteLine($"a^2 - b^2 = {a * a} - {b * b} = {Fraz}");
+            Console.WriteLine($"a^2 * b^2 = {a * a} * {b * b} = {Fproizv}");
+            Console.WriteLine($"a^2 / b^2 = {a * a} / {b * b} = {Fchasnoe}");
         }
     }
 }

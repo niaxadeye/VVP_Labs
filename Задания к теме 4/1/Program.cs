@@ -4,25 +4,57 @@ namespace _1
 {
     class Program
     {
-        static public int calc_S(int a, int b)
+        static public decimal calc_S(decimal a, decimal b)
         {
-            int S;
+            decimal S;
             S = a * b;
             return S;
         }
-        static public int calc_P(int a, int b)
+        static public decimal calc_P(decimal a, decimal b)
         {
-            int P;
-            P = 2*(a + b);
+            decimal P;
+            P = 2 * (a + b);
             return P;
         }
+        
         static void Main(string[] args)
         {
-            int a, b, S, P;
-            Console.Write("Ввведите ширину прямоугольника: ");
-            a = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Ввведите длину прямоугольника: ");
-            b = Convert.ToInt32(Console.ReadLine());
+            decimal a = 0, b = 0, S, P , k =0;
+            Console.WriteLine("Разделитель - запятая (например 12,2)");
+            do
+            {
+                Console.Write("Введите длину прямоугольника: ");
+                try
+                {
+                    a = Convert.ToDecimal(Console.ReadLine());
+                    k = 1;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Неверный формат");
+                    Console.ResetColor();
+                }
+            } while (k == 0);
+
+            k = 0;
+
+
+            do
+            {
+                Console.Write("Введите ширину прямоугольника: ");
+                try
+                {
+                    b = Convert.ToDecimal(Console.ReadLine());
+                    k = 1;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Неверный формат");
+                    Console.ResetColor();
+                }
+            } while (k == 0);
             S = calc_S(a, b);
             P = calc_P(a, b);
             Console.WriteLine($"Площадь прямоугольника со стронами {a} и {b} равна {S}, а периметр равен {P}");
