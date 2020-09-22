@@ -31,17 +31,49 @@ namespace _4
         }
         static void Main(string[] args)
         {
-            decimal a, b, Fsum, Fraz, Fproizv, Fchasnoe;
-            a = Convert.ToDecimal(Console.ReadLine());
-            b = Convert.ToDecimal(Console.ReadLine());
+            int k = 0;
+            decimal a =0 , b = 0, Fsum, Fraz, Fproizv, Fchasnoe;
+            Console.WriteLine("Разделитель - запятая (например 12,2)");
+            Console.Write("Введите число a: ");
+            do {
+                try
+                {
+                    a = Convert.ToDecimal(Console.ReadLine());
+                    k = 1;
+                }
+                catch
+                {
+                    Console.Write("Введите чсло a: ");
+                }
+            } while (k == 0);
+
+            k = 0;
+
+            Console.Write("Введите число b: ");
+            do
+            {
+                try
+                {
+                    b = Convert.ToDecimal(Console.ReadLine());
+                    k = 1;
+                }
+                catch
+                {
+                    Console.Write("Введите число b: ");
+                }
+            } while (k == 0);
+
+            Console.WriteLine($"a = {a} b = {b}");
+
             Fsum = calcl_Fsum(a, b);
             Fraz = calcl_Fraz(a, b);
             Fproizv = calcl_Fproizv(a, b);
             Fchasnoe = calcl_Fchasnoe(a, b);
-            Console.WriteLine(Fsum);
-            Console.WriteLine(Fraz);
-            Console.WriteLine(Fproizv);
-            Console.WriteLine(Fchasnoe);
+
+            Console.WriteLine($"a^2 + b^2 = {Fsum}");
+            Console.WriteLine($"a^2 - b^2 = {Fraz}");
+            Console.WriteLine($"a^2 * b^2 = {Fproizv}");
+            Console.WriteLine($"a^2 / b^2 = {Fchasnoe}");
         }
     }
 }
