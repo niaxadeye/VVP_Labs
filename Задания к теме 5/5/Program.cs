@@ -148,8 +148,15 @@ namespace _5
             } while (k == 0);
             P = calc_P(x1, y1, x2, y2, x3, y3);
             S = calc_S(x1, y1, x2, y2, x3, y3);
-            Console.WriteLine($"Периметр заданного треугольника равен {P}") ;
-            Console.WriteLine($"Площадь заданного треугольника равна {S}");
+            if (S == 0)
+            {
+                Console.WriteLine("Такого треугольника не существует");
+            }
+            else
+            {
+                Console.WriteLine($"Периметр заданного треугольника равен {P}");
+                Console.WriteLine($"Площадь заданного треугольника равна {S}");
+            }
         }
     }
 }
