@@ -16,11 +16,9 @@ namespace _4
                 Console.WriteLine($"{arr[i]} ");
             }
             int max = 0;
-            int flag = 0;
             if(arr[0] > arr[1])
             {
-                max = arr[0];
-                flag = 1;
+                max = 1;
             }
             for(int i = 1; i < N; i++)
             {
@@ -28,27 +26,18 @@ namespace _4
                 {
                     if(arr[N-1] > arr[N-2])
                     {   
-                        if(flag == 1&& arr[N-1] > max)
-                        {
-                              max = arr[N - 1];
-                        }
-                        if(flag == 0)
-                        {
-                              max = arr[N - 1];
-                             flag = 1;
-                        }
+                         max = N;
                     }
                 }
                 else
                 {
                     if (arr[i] > arr[i-1] && arr[i] > arr[i + 1] && arr[i] > max)
                     {
-                        max = arr[i];
-                        flag = 1;
+                        max = i+1;
                     }
                 }
             }
-            Console.WriteLine($"Локальный максимум = {max}");
+            Console.WriteLine($"Номер последнего локального максимума - {max}");
         }
     }
 }
