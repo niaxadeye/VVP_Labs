@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _1
+namespace _2
 {
     class Program
     {
@@ -8,7 +8,7 @@ namespace _1
         {
             int[] newArray = new int[array.Length - 1];
 
-            for(int i = 0; i < index; i++)
+            for (int i = 0; i < index; i++)
             {
                 newArray[i] = array[i];
             }
@@ -20,33 +20,26 @@ namespace _1
         }
         static void Main(string[] args)
         {
-            int[] arr = new int [10] { 1, 1, 20, 10, 30, 30, 30 ,0 , 0, 5};
-            int flag = 0;
-            int temp = 0;
-            for(int i = 0; i < arr.Length; i++)
+            int[] arr = new int[11] { 1, 42, 3, 33, 2, 10, 20, 1, 2, 44 ,10};
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (flag == 1)
+                for (int j = i + 1 ; j < arr.Length; j++)
                 {
-                    if (arr[i] == temp)
+                    if(arr[i] == arr[j])
                     {
+                        if (j > i) j--;
                         Remove(ref arr, i);
-                        i--;
+                        Remove(ref arr, j);
+                        
+
                     }
-                    else
-                    {
-                        temp = arr[i];
-                    }
-                }
-                else
-                {
-                    temp = arr[i];
-                    flag = 1;
                 }
             }
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write($"{arr[i]} ");
             }
+
         }
     }
 }
