@@ -31,7 +31,7 @@ namespace _4
                 }
                 else
                 {
-                    if (arr[i] > arr[i-1] && arr[i] > arr[i + 1] && arr[i] > max)
+                    if (arr[i] > arr[i-1] && arr[i] > arr[i + 1])
                     {
                         max = i+1;
                     }
